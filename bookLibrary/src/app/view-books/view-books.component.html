@@ -1,0 +1,43 @@
+<div [ngStyle]="{'background-color':'yellow'}" style="text-align:center;">
+    <h1 ngClass='red size30'>View Books</h1>
+    <br />
+    <div class="row">       
+        <div class="col-md-10" style="text-align:right">
+            <label>Filter books:</label>
+        </div>
+        <div class="col-md-2">
+            <select class="form-control" #categorydrop (change)="searchBookByCategory(categorydrop.value)">
+                <option value="0">All Languages</option>
+                <option *ngFor="let category of categories" value={{category.categoryId}}>
+                    {{category.languageName}}
+                </option>
+            </select>
+        </div>        
+    </div>
+    <br />
+    <div class="table-responsive">
+        <table class="table" style="border:5px solid rgba(220,230,242,1);" *ngIf="filteredBooks && filteredBooks.length">
+            <tr style="background-color:rgba(220,230,242,1); font-size:12pt">
+                <th>Book ID</th>
+                <th>Book Title</th>
+                <th>Author</th>
+                <th>Language</th>
+                <th>Price</th>
+                <th>Date added</th>
+                <th>Action</th>
+            </tr>
+            <tr *ngFor="let book of filteredBooks" style="background-color:white; text-align:center; font-size:10pt">
+                <td>{{book.ID}}</td>
+                <td>{{book.title}}</td>
+                <td>{{book.author}}</td>
+                <td>{{book.language}}</td>
+                <td>{{book.mrp}}</td>
+                <td>{{book.date}}</td>
+                <td><button title="Add to cart">Add to Cart</button></td>
+              </tr>
+        </table>
+    </div>
+    <div *ngIf="showMsgDiv" style="">
+        <h4 class="jumbotron" style="text-align:center;">No books available</h4>
+    </div>
+</div> 

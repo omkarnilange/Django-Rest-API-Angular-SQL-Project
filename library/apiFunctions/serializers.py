@@ -1,6 +1,6 @@
 from rest_framework import serializers
-from .models import Book
-
+from .models import Book,Category,Product
+from django.contrib.auth.models import User
 
 #class BookSerializer(serializers.Serializer):
 	#ID=serializers.IntegerField()
@@ -24,6 +24,25 @@ from .models import Book
 class BookSerializer(serializers.ModelSerializer):
 	class Meta:
 		model=Book
-		fields=['ID','title','author','mrp','date']
+		#fields=['ID','title','author','mrp','date','language']
+		fields='__all__'
 	
-	
+
+class ProductSerializer(serializers.ModelSerializer):
+	class Meta:
+		model=Product
+		#fields=['categoryId']
+		fields='__all__'
+
+
+class CategorySerializer(serializers.ModelSerializer):
+	class Meta:
+		model=Category
+		#fields=['categoryId']
+		fields='__all__'
+
+class UserSerializer(serializers.ModelSerializer):
+	class Meta:
+		model=User
+		#fields=['categoryId']
+		fields='__all__'

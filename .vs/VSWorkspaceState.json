@@ -1,0 +1,14 @@
+{
+  "ExpandedNodes": [
+    "",
+    "\\bookLibrary\\src",
+    "\\bookLibrary\\src\\app",
+    "\\bookLibrary\\src\\app\\login",
+    "\\bookLibrary\\src\\app\\view-books",
+    "\\library",
+    "\\library\\apiFunctions",
+    "\\library\\apiFunctions\\migrations"
+  ],
+  "SelectedNode": "\\library\\apiFunctions\\migrations\\0002_rename_books_book.py",
+  "PreviewInSolutionExplorer": false
+}

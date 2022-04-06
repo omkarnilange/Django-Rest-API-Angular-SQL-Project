@@ -1,0 +1,7 @@
+export interface IBook {
+    bookId: string;
+    bookName: string;
+    mrp: number;
+    author: string;
+    date:Date;
+}

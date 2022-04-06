@@ -1,0 +1,37 @@
+<div class="container">
+    <h1>Registration Form</h1>
+    <form [formGroup]="registerForm" (ngSubmit)="SubmitForm(registerForm)">
+      <div class="form-group">
+        <label>EmailID</label>
+        <input type="text" class="form-control" formControlName="emailId">   
+        <p *ngIf="registerForm.controls.emailId.errors?.required &&  registerForm.controls.emailId.touched" class="alert alert-danger">This field is required!</p>
+      <p *ngIf="registerForm.controls.emailId.errors?.minlength &&  registerForm.controls.emailId.touched" class="alert alert-danger">The EmailId is not proper!</p>  
+      </div>
+      <div class="form-group">
+        <label>Password</label>
+        <input type="password" class="form-control" formControlName="password">
+        <p *ngIf="registerForm.controls.password.errors?.required &&  registerForm.controls.password.touched" class="alert alert-danger">This field is required!</p>
+      </div>
+       <div class="form-group">
+        <label>username</label>
+        <input type="text" class="form-control" formControlName="username">
+        <p *ngIf="registerForm.controls.username.errors?.required &&  registerForm.controls.username.touched" class="alert alert-danger">This field is required!</p>
+      </div>
+      <div class="form-group">
+        <label>firstname</label>
+        <input type="text" class="form-control" formControlName="firstname">
+        <p *ngIf="registerForm.controls.firstname.errors?.required &&  registerForm.controls.firstname.touched" class="alert alert-danger">This field is required!</p>
+      </div>
+      <div class="form-group">
+        <label>lastname</label>
+        <input type="text" class="form-control" formControlName="lastname">
+        <p *ngIf="registerForm.controls.lastname.errors?.required &&  registerForm.controls.lastname.touched" class="alert alert-danger">This field is required!</p>
+      </div>
+      <button type="submit">Submit</button>
+    </form>
+    <div>
+        {{msg}}
+      </div>
+    <br />
+  </div>
+  
