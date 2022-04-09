@@ -1,0 +1,90 @@
+<app-customer-layout></app-customer-layout>
+<div class="container">
+    <form #BookForm="ngForm" (ngSubmit)="addBookForm(BookForm)" style="background-color:beige;">
+        <div class="row">
+            <div class="col-md-4">
+            </div>
+            <div class="col-md-4">
+                <h2>Add Book</h2>
+                <h6 style="text-align:right;color:dimgrey;font-size:small">All fields are mandatory</h6>
+                <div class="form-group">
+                    <div class="col" style="text-align:left">
+                        <label>Book Title</label>
+                    </div>
+                    <div class="col; input-group">
+                        <input type="text" name="bookTitle" #bookRef="ngModel" class="form-control" ngModel required>
+                    </div>
+                    <div *ngIf="bookRef.errors && (bookRef.dirty || bookRef.touched)"
+                        style="text-align:left; padding-top:5px; color:red;">
+                        <div [hidden]="!bookRef.errors.required">
+                            <p>&nbsp;Book Title is mandatory</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <div class="col" style="text-align:left">
+                        <label>Author</label>
+                    </div>
+                    <div class="col; input-group">
+                        <input type="text" name="bookAuthor" #AuthRef="ngModel" class="form-control" ngModel required>
+                    </div>
+                    <div *ngIf="AuthRef.errors && (AuthRef.dirty || AuthRef.touched)"
+                        style="text-align:left; padding-top:5px; color:red;">
+                        <div [hidden]="!AuthRef.errors.required">
+                            <p>&nbsp;Author is mandatory</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <div class="col" style="text-align:left">
+                        <label>Price</label>
+                    </div>
+                    <div class="col; input-group">
+                        <input type="text" name="bookPrice" #PriceRef="ngModel" class="form-control" ngModel required>
+                    </div>
+                    <div *ngIf="PriceRef.errors && (PriceRef.dirty || PriceRef.touched)"
+                        style="text-align:left; padding-top:5px; color:red;">
+                        <div [hidden]="!PriceRef.errors.required">
+                            <p>&nbsp; Price is mandatory</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <div class="col" style="text-align:left">
+                        <label>Number of copies available</label>
+                    </div>
+                    <div class="col; input-group">
+                        <input type="text" name="bookQuant" #QuantRef="ngModel" class="form-control" ngModel required>
+                    </div>
+                    <div *ngIf="QuantRef.errors && (QuantRef.dirty || QuantRef.touched)"
+                        style="text-align:left; padding-top:5px; color:red;">
+                        <div [hidden]="!QuantRef.errors.required">
+                            <p>&nbsp; Quantity number is mandatory</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <div class="col" style="text-align:left">
+                        <label>Language category</label>
+                    </div>
+                    <div class="col; input-group">
+                        <input type="text" name="bookLang" #LangRef="ngModel" class="form-control" ngModel required>
+                    </div>
+                    <div *ngIf="LangRef.errors && (LangRef.dirty || LangRef.touched)"
+                        style="text-align:left; padding-top:5px; color:red;">
+                        <div [hidden]="!LangRef.errors.required">
+                            <p>&nbsp; Language category is mandatory</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="form-group" style="text-align:left">
+                    <button type="submit" [disabled]="!BookForm.form.valid" class="btn">Add</button>
+                </div>
+            </div>
+            <div class="col-md-4">
+            </div>
+        </div>
+
+
+    </form>
+</div>

@@ -1,0 +1,51 @@
+<app-login-layout></app-login-layout>
+<div class="container">
+  <form #loginForm="ngForm" (ngSubmit)="submitLoginForm(loginForm)" style="background-color:beige;">
+    <div class="row">
+      <div class="col-md-4">
+      </div>
+      <div class="col-md-4">
+        <h2>Login</h2>
+        <h6 style="text-align:right;color:dimgrey;font-size:small">All fields are mandatory</h6>
+        <div class="form-group">
+          <div class="col" style="text-align:left">
+            <label>Username</label>
+          </div>
+          <div class="col; input-group">
+            <input type="text" name="username" #userRef="ngModel" class="form-control" ngModel required >
+          </div>
+          <div *ngIf="userRef.errors && (userRef.dirty || userRef.touched)" style="text-align:left; padding-top:5px; color:red;">
+            <div [hidden]="!userRef.errors.required">
+              <p>&nbsp;Username is mandatory</p>
+            </div>
+            <div [hidden]="!userRef.errors.pattern">
+              <p>&nbsp;Username is not entered in proper format</p>
+            </div>
+          </div>
+        </div>
+        <div class="form-group">
+          <div class="col" style="text-align:left">
+            <label>Password</label>
+          </div>
+          <div class="col; input-group">
+            <input type="password" name="password" #passwordRef="ngModel" class="form-control" ngModel required>
+          </div>
+          <div *ngIf="passwordRef.errors && (passwordRef.dirty || passwordRef.touched)" style="text-align:left; padding-top:5px; color:red;">
+            <div [hidden]="!passwordRef.errors.required">
+              <p>&nbsp;Password is mandatory</p>
+            </div>
+          </div>
+        </div>
+        <div class="form-group" style="text-align:left">
+          <button type="submit" [disabled]="!loginForm.form.valid" class="btn">Login</button>
+        </div>
+      </div>
+      <div class="col-md-4">
+      </div>
+    </div>
+    <div *ngIf="showDiv" style="color:red;text-align:center;">
+      <br />
+      {{msg}}
+    </div>
+  </form>
+</div>
